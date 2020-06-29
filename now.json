@@ -22,7 +22,7 @@
       "use": "@now/static-build",
       "config": { "distDir": "public" }
     }
-  ]
+  ],
 
   "public": true
 }
