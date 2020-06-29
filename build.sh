@@ -3,5 +3,4 @@ tar -xzf hugo_0.55.6_Linux-64bit.tar.gz
 
 mkdir -p ./tmp
 echo "baseURL = \"https://triangulo.dev/\"" >> ./tmp/config.toml
-
 ./hugo --config config.toml,./tmp/config.toml
