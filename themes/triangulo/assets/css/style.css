@@ -166,27 +166,10 @@ body {
 }
 
 .header-logo {
-  display: grid;
-  grid-gap: var(--spacing-xsmall);
-  grid-auto-flow: column;
-  justify-content: start;
+  display: flex;
   align-items: center;
-  font-size: var(--font-size-base);
-
+  justify-content: center;
   text-decoration: none;
-  color: var(--color-ink);
-}
-
-.header-logo-text {
-  display: block;
-  color: var(--color-ink-strong);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-bold);
-  line-height: 1;
-}
-
-.header-logo:hover .header-logo-text {
-  opacity: 1;
 }
 
 .header-logo-img {

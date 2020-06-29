@@ -9,4 +9,4 @@ Acompanhe nosso trabalho:
 
 - [Newsletter](#)
 - [Feed RSS](#)
-- [Twitter](https://twiter.com/triangulo.training)
+- [Twitter](https://twiter.com/triangulo_dev)
