@@ -1,5 +1,4 @@
 import { Box } from "@chakra-ui/core";
-import Head from "next/head";
 
 export default function Home() {
   return (
