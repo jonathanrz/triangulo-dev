@@ -2951,6 +2951,14 @@ from2@^2.1.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
 
+fs-jetpack@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/fs-jetpack/-/fs-jetpack-3.1.0.tgz#0fed50641fefbb8cd74fd09351300aad059e66fb"
+  integrity sha512-PZFMZKhW1AfTUHwWrSfn5rAW4a82d9a9UnfOT0pbJilm+6PWww/YAZkgBiELFaNLxxLe+NG72oqGge1RHCgIKA==
+  dependencies:
+    minimatch "^3.0.2"
+    rimraf "^2.6.3"
+
 fs-minipass@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/fs-minipass/-/fs-minipass-2.1.0.tgz#7f5036fdbf12c63c169190cbe4199c852271f9fb"
@@ -3673,7 +3681,7 @@ minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
   resolved "https://registry.yarnpkg.com/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
   integrity sha1-9sAMHAsIIkblxNmd+4x8CDsrWCo=
 
-minimatch@^3.0.4:
+minimatch@^3.0.2, minimatch@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
