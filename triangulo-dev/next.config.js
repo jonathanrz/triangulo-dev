@@ -1,10 +1,7 @@
-module.exports = {
-  webpack: (config, options) => {
-    config.module.rules.push({
-      test: /\.md/,
-      use: "raw-loader",
-    });
+let withMdx = require("@next/mdx")({
+  extension: /\.mdx$/,
+});
 
-    return config;
-  },
-};
+module.exports = withMdx({
+  pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
+});

@@ -1,17 +1,5 @@
+import Layout from "@/components/Layout";
 import { Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/core";
-
-function Header() {
-  return (
-    <Box as="header" p="4">
-      <Flex alignItems="center" width="100%" maxWidth="2xl" mx="auto">
-        <Box w="35px" h="35px" bg="black" mr="4" borderRadius="50%"></Box>
-        <Box fontSize="2xl" fontWeight="bold">
-          Triângulo
-        </Box>
-      </Flex>
-    </Box>
-  );
-}
 
 function IntroSection() {
   return (
@@ -21,7 +9,7 @@ function IntroSection() {
       justifyContent="center"
       px="4"
       py="24"
-      backgroundImage="linear-gradient(45deg, #252525 0%, black 100%)"
+      background="black"
       color="white"
     >
       <Box maxWidth="2xl">
@@ -113,12 +101,12 @@ function CSSStudyGuide() {
 
 export default function Home() {
   return (
-    <Box w="100%" mx="auto" bg="white">
-      <Header />
-
-      <IntroSection />
-      <BlogRoll />
-      <CSSStudyGuide />
-    </Box>
+    <Layout>
+      <Box w="100%">
+        <IntroSection />
+        <BlogRoll />
+        <CSSStudyGuide />
+      </Box>
+    </Layout>
   );
 }
