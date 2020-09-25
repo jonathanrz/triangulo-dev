@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+import BaseLayout from "@/components/BaseLayout";
 import { Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/core";
 
 function IntroSection() {
@@ -101,12 +101,12 @@ function CSSStudyGuide() {
 
 export default function Home() {
   return (
-    <Layout>
+    <BaseLayout>
       <Box w="100%">
         <IntroSection />
         <BlogRoll />
         <CSSStudyGuide />
       </Box>
-    </Layout>
+    </BaseLayout>
   );
 }

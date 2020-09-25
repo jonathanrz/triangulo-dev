@@ -14,7 +14,7 @@ let Header: React.FC = function () {
   );
 };
 
-let Layout: React.FC = function ({ children }) {
+let BaseLayout: React.FC = function ({ children }) {
   return (
     <Box w="100%" mx="auto" bg="white">
       <Header />
@@ -23,4 +23,4 @@ let Layout: React.FC = function ({ children }) {
   );
 };
 
-export default Layout;
+export default BaseLayout;
