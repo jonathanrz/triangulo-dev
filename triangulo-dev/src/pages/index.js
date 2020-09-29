@@ -1,3 +1,4 @@
+import NextLink from "next/link";
 import BaseLayout from "@/components/BaseLayout";
 import { Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/core";
 
@@ -44,11 +45,11 @@ function BlogRoll() {
         </Heading>
 
         <Box as="article" width="100%">
-          <Link>
-            <Heading as="h3" fontSize="2xl">
-              3 hábitos para escrever CSS escalável
-            </Heading>
-          </Link>
+          <Heading as="h3" fontSize="2xl">
+            <NextLink href="/posts/tres-habitos-css-escalavel">
+              <Link>3 hábitos para escrever CSS escalável</Link>
+            </NextLink>
+          </Heading>
           <Text>
             O que você precisa saber para escrever CSS que escala junto com o
             seu projeto.
