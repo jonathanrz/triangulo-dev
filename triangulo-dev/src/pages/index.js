@@ -9,8 +9,8 @@ function IntroSection() {
       width="100%"
       justifyContent="center"
       px="4"
-      py="24"
-      background="black"
+      py="32"
+      backgroundImage="linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);"
       color="white"
     >
       <Box maxWidth="2xl">
