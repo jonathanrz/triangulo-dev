@@ -6,12 +6,11 @@ import { Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/core"
 function Hero() {
   return (
     <Box
-      as="section"
       backgroundImage="linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);"
       color="white"
     >
       <BaseLayoutHeader />
-      <Flex width="100%" justifyContent="center" px="4" py="32">
+      <Flex as="section" width="100%" justifyContent="center" px="4" py="32">
         <Box maxWidth="2xl">
           <Heading as="h1" fontSize="4xl" textAlign="center" mb="8">
             Alcance o próximo nível em desenvolvimento front-end
