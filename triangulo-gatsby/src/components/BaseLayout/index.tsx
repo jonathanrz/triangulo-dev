@@ -6,12 +6,12 @@ import {
   Link,
   Text,
   useTheme,
-} from "@chakra-ui/core";
-import React from "react";
+} from "@chakra-ui/core"
+import React from "react"
 
-let Header: React.FC = function () {
+export let BaseLayoutHeader: React.FC = function () {
   return (
-    <Box width="100%" bg="black" as="header" p="4">
+    <Box width="100%" as="header" p="4">
       <Flex
         alignItems="center"
         width="100%"
@@ -25,16 +25,13 @@ let Header: React.FC = function () {
         </Box>
       </Flex>
     </Box>
-  );
-};
+  )
+}
 
-let BaseLayout: React.FC = function ({ children }) {
+export let BaseLayout: React.FC = function ({ children }) {
   return (
     <Box w="100%" mx="auto" bg="white">
-      <Header />
       {children}
     </Box>
-  );
-};
-
-export default BaseLayout;
+  )
+}

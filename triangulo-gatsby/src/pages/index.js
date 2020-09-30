@@ -1,39 +1,38 @@
 import React from "react"
-import BaseLayout from "@/components/BaseLayout"
+import { BaseLayout, BaseLayoutHeader } from "@/components/BaseLayout"
 import { Link as GatsbyLink } from "gatsby"
 import { Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/core"
 
-function IntroSection() {
+function Hero() {
   return (
-    <Flex
+    <Box
       as="section"
-      width="100%"
-      justifyContent="center"
-      px="4"
-      py="32"
       backgroundImage="linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);"
       color="white"
     >
-      <Box maxWidth="2xl">
-        <Heading as="h1" fontSize="4xl" textAlign="center" mb="8">
-          Alcance o próximo nível em desenvolvimento front-end
-        </Heading>
+      <BaseLayoutHeader />
+      <Flex width="100%" justifyContent="center" px="4" py="32">
+        <Box maxWidth="2xl">
+          <Heading as="h1" fontSize="4xl" textAlign="center" mb="8">
+            Alcance o próximo nível em desenvolvimento front-end
+          </Heading>
 
-        <Text mb={4}>
-          Mais conhecimento, mais prática, mais oportunidades. Aprenda a
-          construir webapps avançados, com cursos objetivos.
-        </Text>
-        <Text mb={4}>
-          Domine os fundamentos que estão por trás das ferramentas que
-          transformam a web na maior plataforma de distribuição de sofware.
-        </Text>
-        <Text>
-          O <strong>Triângulo</strong> é uma escola de programação com o foco em
-          desenvolvimento frontend. Nosso professor, Hugo Bessa, tem mais de 7
-          anos de experiência em projetos de diversos tipos e tamanhos.
-        </Text>
-      </Box>
-    </Flex>
+          <Text mb={4}>
+            Mais conhecimento, mais prática, mais oportunidades. Aprenda a
+            construir webapps avançados, com cursos objetivos.
+          </Text>
+          <Text mb={4}>
+            Domine os fundamentos que estão por trás das ferramentas que
+            transformam a web na maior plataforma de distribuição de sofware.
+          </Text>
+          <Text>
+            O <strong>Triângulo</strong> é uma escola de programação com o foco
+            em desenvolvimento frontend. Nosso professor, Hugo Bessa, tem mais
+            de 7 anos de experiência em projetos de diversos tipos e tamanhos.
+          </Text>
+        </Box>
+      </Flex>
+    </Box>
   )
 }
 
@@ -47,9 +46,9 @@ function BlogRoll() {
 
         <Box as="article" width="100%">
           <Heading as="h3" fontSize="2xl">
-            <GatsbyLink href="/posts/tres-habitos-css-escalavel">
-              <Link>3 hábitos para escrever CSS escalável</Link>
-            </GatsbyLink>
+            <Link as={GatsbyLink} to="/posts/tres-habitos-css-escalavel">
+              3 hábitos para escrever CSS escalável
+            </Link>
           </Heading>
           <Text>
             O que você precisa saber para escrever CSS que escala junto com o
@@ -105,7 +104,7 @@ export default function Home() {
   return (
     <BaseLayout>
       <Box w="100%">
-        <IntroSection />
+        <Hero />
         <BlogRoll />
         <CSSStudyGuide />
       </Box>
