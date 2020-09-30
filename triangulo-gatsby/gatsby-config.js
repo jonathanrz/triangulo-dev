@@ -7,6 +7,7 @@
 module.exports = {
   /* Your site config here */
   plugins: [
+    `gatsby-plugin-chakra-ui`,
     {
       resolve: `gatsby-plugin-typescript`,
       options: {
