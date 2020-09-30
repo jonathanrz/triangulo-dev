@@ -1,5 +1,6 @@
 import React from "react"
 import BaseLayout from "@/components/BaseLayout"
+import { Link as GatsbyLink } from "gatsby"
 import { Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/core"
 
 function IntroSection() {
@@ -46,9 +47,9 @@ function BlogRoll() {
 
         <Box as="article" width="100%">
           <Heading as="h3" fontSize="2xl">
-            <NextLink href="/posts/tres-habitos-css-escalavel">
+            <GatsbyLink href="/posts/tres-habitos-css-escalavel">
               <Link>3 hábitos para escrever CSS escalável</Link>
-            </NextLink>
+            </GatsbyLink>
           </Heading>
           <Text>
             O que você precisa saber para escrever CSS que escala junto com o
