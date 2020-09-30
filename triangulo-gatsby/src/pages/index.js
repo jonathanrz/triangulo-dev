@@ -13,16 +13,14 @@ function Hero() {
       <Flex as="section" width="100%" justifyContent="center" px="4" py="32">
         <Box maxWidth="2xl">
           <Heading as="h1" fontSize="4xl" textAlign="center" mb="8">
-            Alcance o próximo nível em desenvolvimento front-end
+            Desenvolvimento frontend na prática
           </Heading>
 
           <Text mb={4}>
             Mais conhecimento, mais prática, mais oportunidades. Aprenda a
-            construir webapps avançados, com cursos objetivos.
-          </Text>
-          <Text mb={4}>
-            Domine os fundamentos que estão por trás das ferramentas que
-            transformam a web na maior plataforma de distribuição de sofware.
+            construir webapps avançados e domine os fundamentos que estão por
+            trás das ferramentas que transformam a web na maior plataforma de
+            distribuição de sofware do mundo.
           </Text>
           <Text>
             O <strong>Triângulo</strong> é uma escola de programação com o foco
