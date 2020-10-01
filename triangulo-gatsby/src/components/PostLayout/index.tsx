@@ -1,20 +1,38 @@
 import { Box } from "@chakra-ui/core"
 import React from "react"
 import { BaseLayout, BaseLayoutHeader } from "../BaseLayout"
+import PostContent from "./PostContent"
+import PostHeader from "./PostHeader"
 
-let PostContainer: React.FC = ({ children }) => {
+type PageContext = {
+  frontmatter: object
+}
+
+type PostContainerProps = {
+  pageContext: PageContext
+}
+
+let PostContainer: React.FC<PostContainerProps> = ({
+  children,
+  pageContext,
+}) => {
   return (
-    <Box width="100%" mx="auto" maxWidth="6xl">
-      {children}
+    <Box as="article" width="100%">
+      <PostHeader frontmatter={pageContext.frontmatter} />
+      <PostContent>{children}</PostContent>
     </Box>
   )
 }
 
-let PostLayout: React.FC = ({ children }) => {
+type PostLayoutProps = {
+  pageContext: PageContext
+}
+
+let PostLayout: React.FC<PostLayoutProps> = ({ children, pageContext }) => {
   return (
     <BaseLayout>
       <BaseLayoutHeader />
-      <PostContainer>{children}</PostContainer>
+      <PostContainer pageContext={pageContext}>{children}</PostContainer>
     </BaseLayout>
   )
 }

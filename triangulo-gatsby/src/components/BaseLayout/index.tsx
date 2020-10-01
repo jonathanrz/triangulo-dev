@@ -15,7 +15,7 @@ export let BaseLayoutHeader: React.FC = function () {
       <Flex
         alignItems="center"
         width="100%"
-        maxWidth="2xl"
+        maxWidth="4xl"
         mx="auto"
         color="black"
       >
