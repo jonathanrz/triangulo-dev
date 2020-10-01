@@ -1,6 +1,6 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
-import { Box, Heading, Image, Text } from "@chakra-ui/core"
+import { Box, Heading, Text } from "@chakra-ui/core"
 
 type PostContentPProps = {
   children?: {
@@ -11,16 +11,6 @@ type PostContentPProps = {
 }
 
 let PostContentP: React.FC<PostContentPProps> = ({ children }) => {
-  let hasImageInside = children?.props?.mdxType === "img"
-
-  if (hasImageInside) {
-    return (
-      <Text as="p" my="4" width="100%">
-        {children}
-      </Text>
-    )
-  }
-
   return (
     <Text
       as="p"
@@ -33,17 +23,6 @@ let PostContentP: React.FC<PostContentPProps> = ({ children }) => {
     >
       {children}
     </Text>
-  )
-}
-
-type PostContentImgProps = {
-  src: string
-  alt?: string
-}
-
-let PostContentImg: React.FC<PostContentImgProps> = ({ src, alt }) => {
-  return (
-    <Image width="auto" maxWidth="4xl" px="4" mx="auto" src={src} alt={alt} />
   )
 }
 
@@ -157,7 +136,6 @@ let PostContentInlineCode: React.FC = ({ children }) => {
 
 let mdxComponents = {
   p: PostContentP,
-  img: PostContentImg,
   h1: PostContentH1,
   h2: PostContentH2,
   h3: PostContentH3,

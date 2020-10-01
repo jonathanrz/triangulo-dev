@@ -7,6 +7,8 @@
 module.exports = {
   /* Your site config here */
   plugins: [
+    `gatsby-plugin-sharp`,
+    `gatsby-remark-images`,
     {
       resolve: `gatsby-plugin-chakra-ui`,
       options: {
@@ -43,6 +45,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
         defaultLayouts: {
           posts: require.resolve("./src/components/PostLayout/index.tsx"),
           default: require.resolve("./src/components/Layout/index.tsx"),
