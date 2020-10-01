@@ -17,9 +17,9 @@ export let BaseLayoutHeader: React.FC = function () {
         width="100%"
         maxWidth="2xl"
         mx="auto"
-        color="white"
+        color="black"
       >
-        <Box w="35px" h="35px" bg="white" mr="4" borderRadius="50%"></Box>
+        <Box w="35px" h="35px" bg="black" mr="4" borderRadius="50%"></Box>
         <Box fontSize="2xl" fontWeight="bold">
           Triângulo
         </Box>
