@@ -1,14 +1,16 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: 'Triângulo',
+    description: 'Aprenda desenvolvimento frontend na prática',
+    authorName: 'Hugo Bessa',
+    ogImage: '/images/default-og-image.png',
+    baseURL: process.env.BASE_URL,
+  },
   plugins: [
-    `gatsby-plugin-sharp`,
-    `gatsby-remark-images`,
     {
       resolve: `gatsby-plugin-chakra-ui`,
       options: {
@@ -37,15 +39,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: `${__dirname}/src/content/`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
+          { resolve: 'gatsby-remark-copy-linked-files' },
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -54,10 +51,13 @@ module.exports = {
           },
         ],
         defaultLayouts: {
-          posts: require.resolve("./src/components/PostLayout/index.tsx"),
-          default: require.resolve("./src/components/Layout/index.tsx"),
+          posts: require.resolve('./src/components/PostLayout/index.tsx'),
+          default: require.resolve('./src/components/Layout/index.tsx'),
         },
       },
     },
+    `gatsby-plugin-sharp`,
+    `gatsby-remark-images`,
+    `gatsby-plugin-react-helmet`,
   ],
 }
