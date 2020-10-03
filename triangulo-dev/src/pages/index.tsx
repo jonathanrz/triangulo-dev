@@ -8,50 +8,46 @@ import matter from "gray-matter";
 
 function IntroSection() {
   return (
-    <Flex as="section" width="100%" justifyContent="center" px="4" py="24">
-      <Box maxWidth="2xl">
-        <Heading as="h1" fontSize="4xl" textAlign="center" mb="8">
-          Alcance o próximo nível em desenvolvimento front-end
-        </Heading>
+    <Box as="section" width="100%" px="4" py="24" mx="auto" maxWidth="2xl">
+      <Heading as="h1" fontSize={["2xl", "4xl"]} textAlign="center" mb="8">
+        Alcance o próximo nível em desenvolvimento front-end
+      </Heading>
 
-        <Text mb={4}>
-          Mais conhecimento, mais prática, mais oportunidades. Aprenda a
-          construir webapps avançados, com cursos objetivos.
-        </Text>
-        <Text mb={4}>
-          Domine os fundamentos que estão por trás das ferramentas que
-          transformam a web na maior plataforma de distribuição de sofware.
-        </Text>
-        <Text>
-          O <strong>Triângulo</strong> é uma escola de programação com o foco em
-          desenvolvimento frontend. Nosso professor, Hugo Bessa, tem mais de 7
-          anos de experiência em projetos de diversos tipos e tamanhos.
-        </Text>
-      </Box>
-    </Flex>
+      <Text mb={4}>
+        Mais conhecimento, mais prática, mais oportunidades. Aprenda a construir
+        webapps avançados, com cursos objetivos.
+      </Text>
+      <Text mb={4}>
+        Domine os fundamentos que estão por trás das ferramentas que transformam
+        a web na maior plataforma de distribuição de sofware.
+      </Text>
+      <Text>
+        O <strong>Triângulo</strong> é uma escola de programação com o foco em
+        desenvolvimento frontend. Nosso professor, Hugo Bessa, tem mais de 7
+        anos de experiência em projetos de diversos tipos e tamanhos.
+      </Text>
+    </Box>
   );
 }
 
 function BlogRoll({ posts }) {
   return (
-    <Flex as="section" width="100%" justifyContent="center" py="24" px="4">
-      <Box maxWidth="2xl" width="100%">
-        <Heading as="h2" fontSize="4xl" textAlign="center" mb="8">
-          Blog
-        </Heading>
+    <Box as="section" width="100%" py="24" px="4" mx="auto" maxWidth="2xl">
+      <Heading as="h2" fontSize="4xl" textAlign="center" mb="8">
+        Blog
+      </Heading>
 
-        {posts.map((post) => (
-          <Box as="article" width="100%">
-            <Heading as="h3" fontSize="2xl">
-              <NextLink href={`/posts/${post.slug}`} passHref>
-                <Link>{post.frontmatter.title}</Link>
-              </NextLink>
-            </Heading>
-            <Text>{post.frontmatter.description}</Text>
-          </Box>
-        ))}
-      </Box>
-    </Flex>
+      {posts.map((post) => (
+        <Box as="article" width="100%">
+          <Heading as="h3" fontSize="2xl">
+            <NextLink href={`/posts/${post.slug}`} passHref>
+              <Link>{post.frontmatter.title}</Link>
+            </NextLink>
+          </Heading>
+          <Text>{post.frontmatter.description}</Text>
+        </Box>
+      ))}
+    </Box>
   );
 }
 

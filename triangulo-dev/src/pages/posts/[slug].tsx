@@ -23,7 +23,7 @@ type PostHeaderProps = {
 
 let PostHeader: React.FC<PostHeaderProps> = ({ frontmatter }) => {
   return (
-    <Box as="header" maxWidth="4xl" mx="auto" py="12">
+    <Box as="header" maxWidth="4xl" mx="auto" py="12" px="4">
       <Heading as="h1" fontSize="4xl">
         {frontmatter.title}
       </Heading>
