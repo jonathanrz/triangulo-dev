@@ -6,12 +6,19 @@ import BaseLayout from "@/components/BaseLayout";
 import ReactMarkdown from "react-markdown/with-html";
 
 import { Box, Heading, Stack, Text } from "@chakra-ui/core";
+import SEO from "@/components/SEO";
+
+type PostFrontmatter = {
+  title?: string;
+  authorName?: string;
+  authorImage?: string;
+  description?: string;
+  ogImage?: string;
+  date?: string;
+};
 
 type PostHeaderProps = {
-  frontmatter: {
-    title?: string;
-    author?: string;
-  };
+  frontmatter: PostFrontmatter;
 };
 
 let PostHeader: React.FC<PostHeaderProps> = ({ frontmatter }) => {
@@ -22,7 +29,7 @@ let PostHeader: React.FC<PostHeaderProps> = ({ frontmatter }) => {
       </Heading>
       <Stack isInline={true} spacing="2" alignItems="center" mt="2">
         <Box borderRadius="50%" w="30px" h="30px" bg="green.500" />
-        <Text>por {frontmatter.author || "Hugo Bessa"}</Text>
+        <Text>por {frontmatter.authorName || "Hugo Bessa"}</Text>
       </Stack>
     </Box>
   );
@@ -75,59 +82,10 @@ let PostContentHeading: React.FC<PostContentHeadingProps> = ({
   );
 };
 
-let PostContentH2: React.FC = ({ children }) => {
-  return (
-    <Heading
-      as="h2"
-      fontSize="3xl"
-      px="4"
-      my="4"
-      mx="auto"
-      width="100%"
-      maxWidth="2xl"
-    >
-      {children}
-    </Heading>
-  );
-};
-
-let PostContentH3: React.FC = ({ children }) => {
-  return (
-    <Heading
-      as="h3"
-      fontSize="2xl"
-      px="4"
-      my="4"
-      mx="auto"
-      width="100%"
-      maxWidth="2xl"
-    >
-      {children}
-    </Heading>
-  );
-};
-
-let PostContentUl: React.FC = ({ children }) => {
+let PostContentList: React.FC = ({ children }) => {
   return (
     <Box
       as="ul"
-      fontSize="lg"
-      pl="12"
-      pr="4"
-      my="4"
-      mx="auto"
-      width="100%"
-      maxWidth="2xl"
-    >
-      {children}
-    </Box>
-  );
-};
-
-let PostContentOl: React.FC = ({ children }) => {
-  return (
-    <Box
-      as="ol"
       fontSize="lg"
       pl="12"
       pr="4"
@@ -156,7 +114,7 @@ let PostContentInlineCode: React.FC = ({ children }) => {
 let markdownComponents = {
   paragraph: PostContentP,
   heading: PostContentHeading,
-  list: PostContentUl,
+  list: PostContentList,
   code: PostContentCode,
   inlineCode: PostContentInlineCode,
 };
@@ -175,14 +133,26 @@ let PostContent: React.FC<PostContentProps> = ({ content }) => {
   );
 };
 
-export default function Post({ content, frontmatter }) {
+type PostProps = {
+  content: string;
+  frontmatter: PostFrontmatter;
+};
+
+export default function Post({ content, frontmatter }: PostProps) {
   return (
-    <BaseLayout>
-      <article>
-        <PostHeader frontmatter={frontmatter} />
-        <PostContent content={content} />
-      </article>
-    </BaseLayout>
+    <>
+      <SEO
+        title={frontmatter.title}
+        description={frontmatter.description}
+        ogImage={frontmatter.ogImage}
+      />
+      <BaseLayout>
+        <article>
+          <PostHeader frontmatter={frontmatter} />
+          <PostContent content={content} />
+        </article>
+      </BaseLayout>
+    </>
   );
 }
 
