@@ -38,7 +38,7 @@ function BlogRoll({ posts }) {
       </Heading>
 
       {posts.map((post) => (
-        <Box as="article" width="100%">
+        <Box key={post.slug} as="article" width="100%">
           <Heading as="h3" fontSize="2xl">
             <NextLink href={`/posts/${post.slug}`} passHref>
               <Link>{post.frontmatter.title}</Link>
