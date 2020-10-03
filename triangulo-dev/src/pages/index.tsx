@@ -2,6 +2,10 @@ import NextLink from "next/link";
 import BaseLayout from "@/components/BaseLayout";
 import { Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/core";
 
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+
 function IntroSection() {
   return (
     <Flex as="section" width="100%" justifyContent="center" px="4" py="24">
@@ -28,7 +32,7 @@ function IntroSection() {
   );
 }
 
-function BlogRoll() {
+function BlogRoll({ posts }) {
   return (
     <Flex as="section" width="100%" justifyContent="center" py="24" px="4">
       <Box maxWidth="2xl" width="100%">
@@ -36,17 +40,16 @@ function BlogRoll() {
           Blog
         </Heading>
 
-        <Box as="article" width="100%">
-          <Heading as="h3" fontSize="2xl">
-            <NextLink href="/posts/tres-habitos-css-escalavel">
-              <Link>3 hábitos para escrever CSS escalável</Link>
-            </NextLink>
-          </Heading>
-          <Text>
-            O que você precisa saber para escrever CSS que escala junto com o
-            seu projeto.
-          </Text>
-        </Box>
+        {posts.map((post) => (
+          <Box as="article" width="100%">
+            <Heading as="h3" fontSize="2xl">
+              <NextLink href={`/posts/${post.slug}`} passHref>
+                <Link>{post.frontmatter.title}</Link>
+              </NextLink>
+            </Heading>
+            <Text>{post.frontmatter.description}</Text>
+          </Box>
+        ))}
       </Box>
     </Flex>
   );
@@ -87,14 +90,37 @@ function CSSStudyGuide() {
   );
 }
 
-export default function Home() {
+export default function Home({ posts }) {
   return (
     <BaseLayout>
       <Box w="100%">
         <IntroSection />
-        <BlogRoll />
+        <BlogRoll posts={posts} />
         <CSSStudyGuide />
       </Box>
     </BaseLayout>
   );
+}
+
+export async function getStaticProps() {
+  let files = fs.readdirSync(path.join("content", "posts"));
+
+  let posts = files.map((filename) => {
+    let markdownWithMetadata = fs
+      .readFileSync(path.join("content", "posts", filename, "index.md"))
+      .toString();
+
+    let { data: frontmatter } = matter(markdownWithMetadata);
+
+    return {
+      slug: filename,
+      frontmatter,
+    };
+  });
+
+  return {
+    props: {
+      posts,
+    },
+  };
 }

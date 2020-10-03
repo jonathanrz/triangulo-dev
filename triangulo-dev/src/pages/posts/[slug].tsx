@@ -157,7 +157,7 @@ export default function Post({ content, frontmatter }: PostProps) {
 }
 
 export async function getStaticPaths() {
-  let files = fs.readdirSync("content/posts");
+  let files = fs.readdirSync(path.join("content", "posts"));
 
   let paths = files.map((filename) => ({
     params: {
@@ -173,7 +173,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
   let markdownWithMetadata = fs
-    .readFileSync(path.join("content/posts", slug, "index.md"))
+    .readFileSync(path.join("content", "posts", slug, "index.md"))
     .toString();
 
   let { data: frontmatter, content } = matter(markdownWithMetadata);
