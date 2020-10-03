@@ -1,9 +1,0 @@
-baseURL = "/"
-languageCode = "en-us"
-title = "Triângulo"
-
-theme = "triangulo"
-
-[params]
-  description = "Aprenda desenvolvimento web na prática"
-  authorName = "Hugo Bessa"
