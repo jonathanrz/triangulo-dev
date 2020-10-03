@@ -11,15 +11,9 @@ import React from "react";
 
 let Header: React.FC = function () {
   return (
-    <Box width="100%" bg="black" as="header" p="4">
-      <Flex
-        alignItems="center"
-        width="100%"
-        maxWidth="2xl"
-        mx="auto"
-        color="white"
-      >
-        <Box w="35px" h="35px" bg="white" mr="4" borderRadius="50%"></Box>
+    <Box width="100%" as="header" p="4">
+      <Flex alignItems="center" width="100%" maxWidth="4xl" mx="auto">
+        <Box w="35px" h="35px" bg="black" mr="4" borderRadius="50%"></Box>
         <Box fontSize="2xl" fontWeight="bold">
           Triângulo
         </Box>

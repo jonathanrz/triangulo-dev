@@ -4,15 +4,7 @@ import { Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/core";
 
 function IntroSection() {
   return (
-    <Flex
-      as="section"
-      width="100%"
-      justifyContent="center"
-      px="4"
-      py="32"
-      backgroundImage="linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);"
-      color="white"
-    >
+    <Flex as="section" width="100%" justifyContent="center" px="4" py="24">
       <Box maxWidth="2xl">
         <Heading as="h1" fontSize="4xl" textAlign="center" mb="8">
           Alcance o próximo nível em desenvolvimento front-end
@@ -85,12 +77,7 @@ function CSSStudyGuide() {
           </Text>
 
           <Box>
-            <Button
-              as="a"
-              flexGrow="0"
-              variantColor="cyan"
-              rightIcon="arrow-forward"
-            >
+            <Button as="a" variantColor="cyan" rightIcon="arrow-forward">
               Ver o Guia
             </Button>
           </Box>
