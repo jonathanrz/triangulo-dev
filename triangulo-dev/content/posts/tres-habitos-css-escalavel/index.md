@@ -1,9 +1,8 @@
 ---
 title: "3 hábitos para escrever CSS escalável"
-excerpt: "O que você precisa saber para escrever CSS que escala junto com o seu projeto."
-thumbnail: "images/posts/tres-habitos-css-escalavel/social-image.png"
-date: 2019-05-24T09:32:00-03:00
-layout: layout
+description: "O que você precisa saber para escrever CSS que escala junto com o seu projeto."
+image: "./social-image.png"
+date: "2019-05-24T09:32:00-03:00"
 ---
 
 _Este artigo também está disponível como [slides][slides]._
@@ -61,7 +60,8 @@ seletores muito específicos: `.botao + .link`, `.link + .botao` e
 componentes porque não temos certeza de como eles serão utilizados em conjunto
 no futuro.
 
-![imagem com um botão e um link sem espaçamento entre eles](botao-botao.png)
+![imagem com um botão e um link sem espaçamento entre
+eles](/posts/tres-habitos-css-escalavel/botao-botao.png)
 
 Uma forma melhor de espaçar componentes e evitar este problema com seletores
 específicos é dar ao componente que os engloba a responsabilidade de
@@ -87,7 +87,7 @@ estilizados com `width: 100%`, de modo que quem os engloba pode decidir seu
 tamanho real final.
 
 ![images de uma galeria de imagens com Figura em diversos
-tamanhos](galeria-diversa.png)
+tamanhos](/posts/tres-habitos-css-escalavel/galeria-diversa.png)
 
 Existem alguns casos em que não é possível abrir mão do tamanho dos nossos
 componentes. É, por exemplo, muito difícil estilizar um componente complexo
@@ -120,7 +120,7 @@ Para forçar o conteúdo a se adaptar a um componente, podemos usar `overflow: h
 regras. Esta abordagem normalmente é necessária quando temos que manter um
 balanço e prevenir que um conteúdo gerado pelos usuários quebre a interface.
 
-![imagem de uma figura com sua descrição incompleta](chicago-controlada.png)
+![imagem de uma figura com sua descrição incompleta](/posts/tres-habitos-css-escalavel/chicago-controlada.png)
 
 O problema de tentar controlar o conteúdo é que uma mudança nos requerimentos
 deste conteúdo pode nos forçar a refatorar todos os componentes que não se
@@ -142,7 +142,7 @@ regras como `overflow-wrap: break-word` e `min-width: 200px` definimos limites
 de como o conteúdo vai fluir dentro dos nossos componentes, tendo um pouco mais
 de controle, mas não o suficiente para limitar demais o conteúdo.
 
-![imagem de uma figura com sua descrição completa](chicago-fluida.png)
+![imagem de uma figura com sua descrição completa](/posts/tres-habitos-css-escalavel/chicago-fluida.png)
 
 É claro que você pode misturar a abordagem fluída com a controlada. Esta
 é normalmente a forma que eu implemento componentes que recebem conteúdo

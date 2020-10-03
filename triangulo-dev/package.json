@@ -15,9 +15,11 @@
     "@next/mdx": "^9.5.3",
     "emotion-theming": "^10.0.27",
     "fs-jetpack": "^3.1.0",
+    "gray-matter": "^4.0.2",
     "next": "9.5.3",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-markdown": "^4.3.1"
   },
   "devDependencies": {
     "@types/node": "^14.11.1",
