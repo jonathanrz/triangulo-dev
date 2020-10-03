@@ -5,7 +5,28 @@ import matter from "gray-matter";
 import BaseLayout from "@/components/BaseLayout";
 import ReactMarkdown from "react-markdown/with-html";
 
-import { Box, Heading, Text } from "@chakra-ui/core";
+import { Box, Heading, Stack, Text } from "@chakra-ui/core";
+
+type PostHeaderProps = {
+  frontmatter: {
+    title?: string;
+    author?: string;
+  };
+};
+
+let PostHeader: React.FC<PostHeaderProps> = ({ frontmatter }) => {
+  return (
+    <Box as="header" maxWidth="4xl" mx="auto" py="12">
+      <Heading as="h1" fontSize="4xl">
+        {frontmatter.title}
+      </Heading>
+      <Stack isInline={true} spacing="2" alignItems="center" mt="2">
+        <Box borderRadius="50%" w="30px" h="30px" bg="green.500" />
+        <Text>por {frontmatter.author || "Hugo Bessa"}</Text>
+      </Stack>
+    </Box>
+  );
+};
 
 let PostContentP: React.FC = ({ children }) => {
   return (
@@ -158,6 +179,7 @@ export default function Post({ content, frontmatter }) {
   return (
     <BaseLayout>
       <article>
+        <PostHeader frontmatter={frontmatter} />
         <PostContent content={content} />
       </article>
     </BaseLayout>
