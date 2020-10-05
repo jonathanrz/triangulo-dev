@@ -10,6 +10,10 @@ type SEOProps = {
   authorName?: string;
 };
 
+function withBaseURL(path: string): string {
+  return `${site.meta.baseURL}${path}`;
+}
+
 let SEO: React.FC<SEOProps> = ({ title, description, ogImage, authorName }) => {
   let router = useRouter();
 
@@ -18,7 +22,7 @@ let SEO: React.FC<SEOProps> = ({ title, description, ogImage, authorName }) => {
     description: description || site.meta.description,
     ogImage: ogImage || site.meta.ogImage,
     authorName: authorName || site.meta.authorName,
-    url: `${site.meta.baseURL}${router.asPath}`,
+    url: withBaseURL(router.asPath),
   };
 
   return (
@@ -34,8 +38,8 @@ let SEO: React.FC<SEOProps> = ({ title, description, ogImage, authorName }) => {
       <meta property="og:description" content={content.description} />
       <meta name="twitter:description" content={content.description} />
 
-      <meta property="og:image" content={content.ogImage} />
-      <meta name="twitter:image" content={content.ogImage} />
+      <meta property="og:image" content={withBaseURL(content.ogImage)} />
+      <meta name="twitter:image" content={withBaseURL(content.ogImage)} />
 
       <meta name="author" content={content.authorName} />
     </Head>
