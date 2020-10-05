@@ -2,7 +2,7 @@ import NextLink from "next/link";
 import BaseLayout from "@/components/BaseLayout";
 import { Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/core";
 
-import { getAllPosts } from "@/models/posts.model";
+import { getAllPosts, Post } from "@/models/posts.model";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 function IntroSection() {
@@ -29,7 +29,7 @@ function IntroSection() {
   );
 }
 
-function BlogRoll({ posts }) {
+function BlogRoll({ posts }: { posts: Post[] }) {
   return (
     <Box as="section" width="100%" py="24" px="4" mx="auto" maxWidth="2xl">
       <Heading as="h2" fontSize="4xl" textAlign="center" mb="8">
