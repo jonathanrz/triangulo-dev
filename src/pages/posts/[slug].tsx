@@ -4,7 +4,7 @@ import path from "path";
 import BaseLayout from "@/components/BaseLayout";
 import ReactMarkdown from "react-markdown/with-html";
 
-import { Box, Heading, Stack, Text } from "@chakra-ui/core";
+import { Box, Heading, Image, Stack, Text } from "@chakra-ui/core";
 import SEO from "@/components/SEO";
 import { getPost } from "@/models/posts.model";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
@@ -29,8 +29,18 @@ let PostHeader: React.FC<PostHeaderProps> = ({ frontmatter }) => {
         {frontmatter.title}
       </Heading>
       <Stack isInline={true} spacing="2" alignItems="center" mt="2">
-        <Box borderRadius="50%" w="30px" h="30px" bg="green.500" />
-        <Text>por {frontmatter.authorName || "Hugo Bessa"}</Text>
+        {frontmatter.authorImage ? (
+          <Image
+            src={frontmatter.authorImage}
+            borderRadius="50%"
+            w="30px"
+            h="30px"
+            bg="green.500"
+          />
+        ) : null}
+        {frontmatter.authorName ? (
+          <Text>por {frontmatter.authorName || "Hugo Bessa"}</Text>
+        ) : null}
       </Stack>
     </Box>
   );
