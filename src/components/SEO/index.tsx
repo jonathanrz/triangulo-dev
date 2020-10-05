@@ -30,6 +30,10 @@ let SEO: React.FC<SEOProps> = ({ title, description, ogImage, authorName }) => {
       <title>{content.title}</title>
 
       <link rel="canonical" href={content.url} />
+      <link rel="og:url" href={content.url} />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@triangulo_dev" />
 
       <meta property="og:title" content={content.title} />
       <meta property="twitter:title" content={content.title} />
