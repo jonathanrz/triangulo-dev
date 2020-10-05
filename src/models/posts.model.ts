@@ -42,7 +42,5 @@ export async function getAllPosts(): Promise<Post[]> {
     return await getPost(filename);
   });
 
-  console.log(await Promise.all(posts));
-
   return await Promise.all(posts);
 }
