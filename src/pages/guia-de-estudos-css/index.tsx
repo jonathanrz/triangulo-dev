@@ -12,15 +12,17 @@ function GuiaDeEstudosCSS() {
 
         <Text mb={4}>
           Estudar CSS pode ser uma tarefa bastante complicada. São muitos
-          conceitos para aprender e muito conteúdo para consumir. O Guia de
-          Estudos CSS é um quadro no Trello que te ajudará a organizar sua
-          rotina de estudos e te dará o caminho das pedras para ir do básico ao
-          avançado no seu próprio tempo.
+          conceitos para aprender e muito conteúdo para consumir. O{" "}
+          <strong>Guia de Estudos CSS</strong> é um quadro no Trello que te
+          ajudará a organizar sua rotina de estudos e te dará o caminho das
+          pedras para ir do básico ao avançado no seu próprio tempo.
         </Text>
         <Text mb={4}>
           Ainda estamos trabalhando neste Guia. Nos siga no Twitter (
           <NextLink href="https://twitter.com/triangulo_dev" passHref>
-            <Link color="blue.500">@triangulo_dev</Link>
+            <Link isExternal color="blue.500">
+              @triangulo_dev
+            </Link>
           </NextLink>
           ) para saber quando ele for lançado. Ou simplesmente volte daqui
           alguns dias.

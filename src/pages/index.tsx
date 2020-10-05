@@ -75,9 +75,11 @@ function CSSStudyGuide() {
           </Text>
 
           <Box>
-            <Button as="a" variantColor="cyan" rightIcon="arrow-forward">
-              Ver o Guia
-            </Button>
+            <NextLink href="/guia-de-estudos-css" passHref>
+              <Button as="a" variantColor="cyan" rightIcon="arrow-forward">
+                Ver o Guia
+              </Button>
+            </NextLink>
           </Box>
         </Box>
       </Box>
