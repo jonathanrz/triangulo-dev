@@ -15,7 +15,7 @@ function IntroSection() {
 
       <Text mb={4}>
         Mais conhecimento, mais prática, mais oportunidades. Aprenda a construir
-        webapps avançados, com cursos objetivos.
+        webapps avançados, com conteúdo objetivo e direto das trincheiras.
       </Text>
       <Text mb={4}>
         Domine os fundamentos que estão por trás das ferramentas que transformam
