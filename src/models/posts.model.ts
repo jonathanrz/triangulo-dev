@@ -1,4 +1,4 @@
-import * as jetpack from "fs-jetpack";
+import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
@@ -16,8 +16,8 @@ export type Post = {
 };
 
 export async function getPost(slug: string): Promise<Post> {
-  let markdownWithMetadata = await jetpack.readAsync(
-    path.join("content", "posts", slug, "index.md")
+  let markdownWithMetadata = fs.readFileSync(
+    path.join(process.cwd(), "content", "posts", slug, "index.md")
   );
 
   if (markdownWithMetadata) {
@@ -34,14 +34,15 @@ export async function getPost(slug: string): Promise<Post> {
 }
 
 export async function getAllPosts(): Promise<Post[]> {
-  let files: string[] = jetpack.find(path.join("content", "posts"), {
-    directories: true,
-    files: false,
-  });
+  let files: string[] = fs.readdirSync(
+    path.join(process.cwd(), "content", "posts")
+  );
 
   let posts = files.map(async (filename: string) => {
     return await getPost(filename);
   });
+
+  console.log(await Promise.all(posts));
 
   return await Promise.all(posts);
 }
