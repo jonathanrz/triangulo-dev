@@ -1,8 +1,10 @@
 ---
 title: "3 hábitos para escrever CSS escalável"
 description: "O que você precisa saber para escrever CSS que escala junto com o seu projeto."
-image: "./social-image.png"
+ogImage: "/posts/tres-habitos-css-escalavel/social-image.png"
 date: "2019-05-24T09:32:00-03:00"
+authorName: "Hugo Bessa"
+authorImage: "/authors/hugo.png"
 ---
 
 _Este artigo também está disponível como [slides][slides]._
