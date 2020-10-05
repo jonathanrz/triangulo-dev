@@ -2,10 +2,7 @@ import NextLink from "next/link";
 import BaseLayout from "@/components/BaseLayout";
 import { Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/core";
 
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { getAllPosts, Post } from "@/models/posts.model";
+import { getAllPosts } from "@/models/posts.model";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 function IntroSection() {
