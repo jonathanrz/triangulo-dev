@@ -5,6 +5,8 @@ import { Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/core";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { getAllPosts, Post } from "@/models/posts.model";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 function IntroSection() {
   return (
@@ -86,7 +88,9 @@ function CSSStudyGuide() {
   );
 }
 
-export default function Home({ posts }) {
+export default function Home({
+  posts,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <BaseLayout>
       <Box w="100%">
@@ -98,25 +102,12 @@ export default function Home({ posts }) {
   );
 }
 
-export async function getStaticProps() {
-  let files = fs.readdirSync(path.join("content", "posts"));
-
-  let posts = files.map((filename) => {
-    let markdownWithMetadata = fs
-      .readFileSync(path.join("content", "posts", filename, "index.md"))
-      .toString();
-
-    let { data: frontmatter } = matter(markdownWithMetadata);
-
-    return {
-      slug: filename,
-      frontmatter,
-    };
-  });
+export let getStaticProps: GetStaticProps = async function () {
+  let posts = getAllPosts();
 
   return {
     props: {
       posts,
     },
   };
-}
+};

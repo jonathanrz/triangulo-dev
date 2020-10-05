@@ -1,12 +1,13 @@
 import React from "react";
 import fs from "fs";
 import path from "path";
-import matter from "gray-matter";
 import BaseLayout from "@/components/BaseLayout";
 import ReactMarkdown from "react-markdown/with-html";
 
 import { Box, Heading, Stack, Text } from "@chakra-ui/core";
 import SEO from "@/components/SEO";
+import { getPost, Post } from "@/models/posts.model";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 type PostFrontmatter = {
   title?: string;
@@ -133,12 +134,10 @@ let PostContent: React.FC<PostContentProps> = ({ content }) => {
   );
 };
 
-type PostProps = {
-  content: string;
-  frontmatter: PostFrontmatter;
-};
-
-export default function Post({ content, frontmatter }: PostProps) {
+export default function Post({
+  content,
+  frontmatter,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <SEO
@@ -171,17 +170,16 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params: { slug } }) {
-  let markdownWithMetadata = fs
-    .readFileSync(path.join("content", "posts", slug, "index.md"))
-    .toString();
+export let getStaticProps: GetStaticProps = async function (context) {
+  let slug = context.params?.slug?.toString();
 
-  let { data: frontmatter, content } = matter(markdownWithMetadata);
+  if (slug) {
+    let post = await getPost(slug);
 
-  return {
-    props: {
-      content,
-      frontmatter,
-    },
-  };
-}
+    return {
+      props: post,
+    };
+  }
+
+  throw new Error(`No slug param passed`);
+};
