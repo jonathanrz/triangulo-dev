@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown/with-html";
 
 import { Box, Heading, Stack, Text } from "@chakra-ui/core";
 import SEO from "@/components/SEO";
-import { getPost, Post } from "@/models/posts.model";
+import { getPost } from "@/models/posts.model";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 type PostFrontmatter = {
