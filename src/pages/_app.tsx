@@ -3,8 +3,25 @@ import theme from "../config/theme";
 import Head from "next/head";
 import SEO from "@/components/SEO";
 import type { AppProps } from "next/app";
+import { GA_TRACKING_ID, pageview } from "@/utils/gtag";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  let router = useRouter();
+
+  useEffect(() => {
+    function handleRouterChange(url: string) {
+      pageview(url);
+    }
+
+    router.events.on("routeChangeComplete", handleRouterChange);
+
+    return function () {
+      router.events.off("routeChangeComplete", handleRouterChange);
+    };
+  });
+
   return (
     <>
       <SEO />
@@ -34,7 +51,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         <script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-179589724-1"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
         ></script>
 
         <script
@@ -44,7 +61,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
 
-              gtag('config', 'UA-179589724-1');
+              gtag('config', '${GA_TRACKING_ID}');
             `,
           }}
         />
