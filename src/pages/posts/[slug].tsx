@@ -3,8 +3,9 @@ import fs from "fs";
 import path from "path";
 import BaseLayout from "@/components/BaseLayout";
 import ReactMarkdown from "react-markdown/with-html";
+import NextLink from "next/link";
 
-import { Box, Heading, Image, Stack, Text } from "@chakra-ui/core";
+import { Box, Heading, Image, Link, Stack, Text } from "@chakra-ui/core";
 import SEO from "@/components/SEO";
 import { getPost } from "@/models/posts.model";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
@@ -122,11 +123,29 @@ let PostContentInlineCode: React.FC = ({ children }) => {
   );
 };
 
+type PostContentLinkProps = {
+  href?: string;
+};
+
+let PostContentLink: React.FC<PostContentLinkProps> = ({ children, href }) => {
+  let isExternal = href?.startsWith("https://") || false;
+
+  return (
+    <NextLink href={href || ""} passHref>
+      <Link isExternal={isExternal} color="blue.500" textDecoration="underline">
+        {children}
+      </Link>
+    </NextLink>
+  );
+};
+
 let markdownComponents = {
   paragraph: PostContentP,
   heading: PostContentHeading,
   list: PostContentList,
   code: PostContentCode,
+  link: PostContentLink,
+  linkReference: PostContentLink,
   inlineCode: PostContentInlineCode,
 };
 

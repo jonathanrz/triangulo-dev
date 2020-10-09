@@ -20,7 +20,7 @@ function GuiaDeEstudosCSS() {
         <Text mb={4}>
           Ainda estamos trabalhando neste Guia. Nos siga no Twitter (
           <NextLink href="https://twitter.com/triangulo_dev" passHref>
-            <Link isExternal color="blue.500">
+            <Link isExternal color="blue.500" textDecoration="underline">
               @triangulo_dev
             </Link>
           </NextLink>
