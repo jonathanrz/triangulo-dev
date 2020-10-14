@@ -72,11 +72,11 @@ let PostContentHeading: React.FC<PostContentHeadingProps> = ({
   level,
 }) => {
   let levelConfig: {
-    [index: string]: { fontSize: string; tag: "h1" | "h2" | "h3" };
+    [index: string]: { fontSize: string; tag: "h1" | "h2" | "h3"; mt: string };
   } = {
-    "1": { fontSize: "4xl", tag: "h1" },
-    "2": { fontSize: "3xl", tag: "h2" },
-    "3": { fontSize: "2xl", tag: "h3" },
+    "1": { fontSize: "4xl", tag: "h1", mt: "16" },
+    "2": { fontSize: "3xl", tag: "h2", mt: "16" },
+    "3": { fontSize: "2xl", tag: "h3", mt: "8" },
   };
 
   return (
@@ -84,7 +84,8 @@ let PostContentHeading: React.FC<PostContentHeadingProps> = ({
       as={levelConfig[level.toString()]?.tag || "h3"}
       fontSize={levelConfig[level.toString()]?.fontSize || "2xl"}
       px="4"
-      my="4"
+      mt={levelConfig[level.toString()]?.mt || "4"}
+      mb="4"
       mx="auto"
       width="100%"
       maxWidth="2xl"
