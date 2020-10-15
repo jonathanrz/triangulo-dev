@@ -46,11 +46,53 @@ let Header: React.FC = function () {
   );
 };
 
+let Footer: React.FC = function () {
+  return (
+    <Flex
+      as="footer"
+      alignItems="center"
+      justifyContent="center"
+      width="100%"
+      maxWidth="4xl"
+      mx="auto"
+      p="4"
+    >
+      <Stack isInline spacing="4">
+        <Box>
+          <NextLink href="https://twitter.com/triangulo_dev" passHref>
+            <Link
+              _hover={{ textDecor: "none" }}
+              isExternal
+              color="blue.500"
+              textDecor="underline"
+            >
+              Twitter
+            </Link>
+          </NextLink>
+        </Box>
+        <Box>
+          <NextLink href="https://instagram.com/triangulo_dev" passHref>
+            <Link
+              _hover={{ textDecor: "none" }}
+              isExternal
+              color="pink.500"
+              textDecor="underline"
+            >
+              Instagram
+            </Link>
+          </NextLink>
+        </Box>
+      </Stack>
+    </Flex>
+  );
+};
+
 let BaseLayout: React.FC = function ({ children }) {
   return (
     <Box w="100%" mx="auto" bg="white">
       <Header />
       {children}
+      <Footer />
     </Box>
   );
 };
